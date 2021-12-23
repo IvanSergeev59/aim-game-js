@@ -16,7 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/styles.scss */ \"./src/styles/styles.scss\");\n\n\n//# sourceURL=webpack://aim-game-js/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/styles.scss */ \"./src/styles/styles.scss\");\n\nvar startBtn = document.querySelector('#start');\nvar screens = document.querySelectorAll('.screen');\nvar timeList = document.querySelector('#time-list');\nvar timeEl = document.querySelector('#time');\nvar board = document.querySelector('#board');\nvar time = 0;\nvar score = 0;\nstartBtn.addEventListener('click', function (event) {\n  event.preventDefault();\n  screens[0].classList.add('up');\n});\ntimeList.addEventListener('click', function (event) {\n  if (event.target.classList.contains('time-btn')) {\n    time = parseInt(event.target.getAttribute('data-time'));\n    screens[1].classList.add('up');\n    startGame();\n  }\n});\nboard.addEventListener('click', function (event) {\n  if (event.target.classList.contains('circle')) {\n    score++;\n    event.target.remove();\n    createRandomCircle();\n  }\n});\n\nfunction startGame() {\n  setInterval(decreaseTime, 1000);\n  createRandomCircle();\n  setTime(time);\n}\n\nfunction decreaseTime() {\n  if (time === 0) {\n    finishGame();\n  } else {\n    var current = --time;\n\n    if (current < 10) {\n      current = \"0\".concat(current);\n    }\n\n    setTime(current);\n  }\n}\n\nfunction setTime(value) {\n  timeEl.innerHTML = \"00:\".concat(value);\n}\n\nfunction finishGame() {\n  timeEl.parentNode.classList.add('hide');\n  board.innerHTML = \"<h1>\\u0412\\u0430\\u0448 \\u0441\\u0447\\u0435\\u0442: <span class=\\\"primary\\\">\".concat(score, \"</span></h1>\");\n}\n\nfunction createRandomCircle() {\n  var circle = document.createElement('div');\n  var size = getRandomNumber(10, 60);\n\n  var _board$getBoundingCli = board.getBoundingClientRect(),\n      width = _board$getBoundingCli.width,\n      height = _board$getBoundingCli.height;\n\n  var x = getRandomNumber(0, width - size);\n  var y = getRandomNumber(0, height - size);\n  var colors = ['#FFDAB9', '#66CDAA', '#8B008B', '##C0C0C0', '#ADFF2F', '#8B0000', 'green', 'yellow'];\n  circle.style.top = \"\".concat(x, \"px\");\n  circle.style.top = \"\".concat(x, \"px\");\n  circle.classList.add('circle');\n  circle.style.width = \"\".concat(size, \"px\");\n  circle.style.height = \"\".concat(size, \"px\");\n  circle.style.top = \"\".concat(y, \"px\");\n  circle.style.left = \"\".concat(x, \"px\");\n  circle.style.background = colors[Math.floor(Math.random() * colors.length)];\n  board.append(circle);\n}\n\nfunction getRandomNumber(min, max) {\n  return Math.round(Math.random() * (max - min) + min);\n}\n\n//# sourceURL=webpack://aim-game-js/./src/index.js?");
 
 /***/ }),
 
@@ -205,7 +205,7 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("964f9387fbccaadbf87d")
+/******/ 		__webpack_require__.h = () => ("7906b3b97f58af55dcdd")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
